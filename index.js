@@ -2,7 +2,6 @@
 import express from "express"; // "type": "module"
 import { MongoClient } from "mongodb";
 import filmsRouter from "./routes/films.routes.js"
-import usersRouter from "./routes/users.routes.js"
 import * as dotenv from 'dotenv';
 import cors from "cors";
 dotenv.config()
