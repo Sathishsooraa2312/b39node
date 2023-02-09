@@ -2,10 +2,13 @@
 import express from "express"; // "type": "module"
 import { MongoClient } from "mongodb";
 import filmsRouter from "./routes/films.routes.js"
+import usersRouter from "./routes/users.routes.js"
 import * as dotenv from 'dotenv';
+import cors from "cors";
 dotenv.config()
 
 const app = express();
+app.use(cors())
 const PORT =process.env.PORT;
 
     // const MONGO_URL = "mongodb://127.0.0.1";
@@ -23,8 +26,10 @@ app.get("/", function (request, response) {
   response.send("welcome to karikalan magic show!!!");
 });
 
-app.use('/films',filmsRouter)
+app.use('/films',filmsRouter);
+
 
 app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));
+
 
 export {client};

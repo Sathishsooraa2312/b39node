@@ -1,8 +1,12 @@
 import express from "express";
-import { getAllfilms, getfilmById, insertfilms, deletefilmsById, updatefilmById } from "../services/films.service.js";
+import {auth} from "./middleware/auth.js"
+import { getAllfilms,
+   getfilmById,
+    insertfilms, 
+    deletefilmsById, updatefilmById } from "../services/films.service.js";
 const router=express.Router();
 
-router.get("/", async function (request, response) {
+router.get("/",auth, async function (request, response) {
     // db.films.find({})
     // find gives cursor -> toArray
     if(request.query.rating){
